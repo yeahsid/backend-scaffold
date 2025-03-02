@@ -2,6 +2,7 @@ use api::{setup_db, setup_router};
 use doc::ApiDoc;
 use utils::migrate;
 
+
 pub async fn run(db_url: &str) -> shuttle_axum::ShuttleAxum {
     tracing::info!("Starting with shuttle");
 
