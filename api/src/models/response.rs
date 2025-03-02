@@ -9,7 +9,6 @@ pub struct ApiErrorResponse {
 }
 
 #[derive(Serialize, ToSchema)]
-#[aliases(ParamsErrorResponse = ValidationErrorResponse<HashMap<String, Vec<HashMap<String, String>>>>)]
 pub struct ValidationErrorResponse<T> {
     pub message: String,
     pub details: T,
@@ -23,3 +22,6 @@ impl<T> From<T> for ValidationErrorResponse<T> {
         }
     }
 }
+
+// Define the type alias explicitly
+pub type ParamsErrorResponse = ValidationErrorResponse<HashMap<String, Vec<HashMap<String, String>>>>;
